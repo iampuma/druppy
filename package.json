@@ -1,0 +1,16 @@
+{
+  "name": "druppy",
+  "version": "1.0.0",
+  "description": "Drupal Programmers Tasks in Gulp",
+  "main": "index.js",
+  "scripts": {
+    "postinstall": "composer install"
+  },
+  "author": "nicky.vandevoorde@gmail.com",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-phpcs": "^1.0.0",
+    "gulp-shell": "^0.5.1"
+  }
+}

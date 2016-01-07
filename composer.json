@@ -1,0 +1,15 @@
+{
+    "name": "iampuma/druppy",
+    "description": "Drupal Programmers Tasks in Gulp",
+    "license": "ISC",
+    "authors": [
+        {
+            "name": "Nicky Vandevoorde",
+            "email": "nicky.vandevoorde@gmail.com"
+        }
+    ],
+    "require-dev": {
+        "squizlabs/php_codesniffer": "^2.5",
+        "drupal/coder": "^8.2"
+    }
+}
