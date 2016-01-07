@@ -5,7 +5,7 @@ var shell = require('gulp-shell');
 /**
  * Codesniffs on correct Drupal standards.
  */
-gulp.task('default', function () {
+gulp.task('phpcs-drupal', function () {
     return gulp.src(['./**/*.php', './**/*.inc', './**/*.module', '!node_modules/', '!vendor/**/*'])
         // Codesniff on correct Drupal standards.
         .pipe(phpcs({
@@ -27,6 +27,13 @@ gulp.task('prod', shell.task([
 	// Remove Composer dev dependencies
 	'composer update --no-dev'
 ]));
+
+/**
+ * Watch task for code changes.
+ */
+gulp.task('default', function() {
+  gulp.watch(['./**/*.php', './**/*.inc', './**/*.module', '!node_modules/', '!vendor/**/*'], ['phpcs-drupal']);
+});
 
 gulp.task('production', ['prod']);
 gulp.task('clean', ['prod']);
