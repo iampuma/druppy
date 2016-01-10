@@ -10,8 +10,10 @@
   "license": "ISC",
   "devDependencies": {
     "gulp": "^3.9.0",
+    "gulp-phpcbf": "^0.1.2",
     "gulp-phpcs": "^1.0.0",
     "gulp-shell": "^0.5.1",
+    "gutil": "^1.6.4",
     "phplint": "^1.7.0"
   }
 }
