@@ -10,6 +10,7 @@
     ],
     "require-dev": {
         "squizlabs/php_codesniffer": "^2.5",
-        "drupal/coder": "^8.2"
+        "drupal/coder": "^8.2",
+        "phpmd/phpmd": "^2.3"
     }
 }

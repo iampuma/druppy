@@ -10,7 +10,7 @@ paths = {
 };
 
 /**
- * Codesniffs on Drupal standards.
+ * Codesniffs PHP on Drupal standards.
  */
 gulp.task('phpcs:drupal', function () {
   return gulp.src(paths.php)
@@ -26,7 +26,7 @@ gulp.task('phpcs:drupal', function () {
 });
 
 /**
- * Beautifies php on Drupal standards.
+ * Beautifies PHP on Drupal standards.
  */
 gulp.task('phpcbf:drupal', function () {
   return gulp.src(paths.php)
@@ -43,7 +43,7 @@ gulp.task('phpcbf:drupal', function () {
 });
 
 /**
- * Lints php files.
+ * Lints PHP files.
  */
 gulp.task('phplint', function (cb) {
   phplint(paths.php,  { limit: 10 }, function (err, stdout, stderr) {
@@ -54,6 +54,17 @@ gulp.task('phplint', function (cb) {
     }
   });
 });
+
+/**
+ * Detects messy PHP code.
+ *
+ * @link http://phpmd.org/rules/controversial.html @unlink
+ * Controversial rules are not checked as it is accepted
+ * in Drupal to make use of underscores.
+ */
+gulp.task('phpmd', shell.task([
+  'vendor/bin/phpmd . text cleancode,codesize,design,naming,unusedcode --suffixes php,inc,module --exclude vendor/,node_modules/'
+], {ignoreErrors: true}));
 
 /**
  * Cleans up all unwanted dev dependencies after coding.
@@ -69,7 +80,7 @@ gulp.task('prod', shell.task([
  * Watch task for code changes.
  */
 gulp.task('default', function () {
-  gulp.watch(paths.php, ['phplint', 'phpcs:drupal']);
+  gulp.watch(paths.php, ['phplint', 'phpcs:drupal', 'phpmd']);
 });
 
 // Set sensible aliases for tasks.
